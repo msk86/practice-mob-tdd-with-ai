@@ -10,4 +10,12 @@ export class Cart {
     addItem(item: Item): void {
         this.items.push(item);
     }
+
+    removeItem(item: Item): void {
+        this.items = this.items.filter(i => i !== item);
+    }
+
+    totalPrice(): number {
+        return this.items.reduce((total, item) => total + item.price, 0);
+    }
 }
